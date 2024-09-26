@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+        <html>
+        <head>
+            <meta charset="UTF-8">
+            <title>1 Submodules</title>
+            <style>
+/* From extension vscode.github */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+.vscode-dark img[src$=\#gh-light-mode-only],
+.vscode-light img[src$=\#gh-dark-mode-only],
+.vscode-high-contrast:not(.vscode-high-contrast-light) img[src$=\#gh-light-mode-only],
+.vscode-high-contrast-light img[src$=\#gh-dark-mode-only] {
+	display: none;
+}
+
+</style>
+            
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+<style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        </style>
+        <style>
+.task-list-item {
+    list-style-type: none;
+}
+
+.task-list-item-checkbox {
+    margin-left: -20px;
+    vertical-align: middle;
+    pointer-events: none;
+}
+</style>
+<style>
+:root {
+  --color-note: #0969da;
+  --color-tip: #1a7f37;
+  --color-warning: #9a6700;
+  --color-severe: #bc4c00;
+  --color-caution: #d1242f;
+  --color-important: #8250df;
+}
+
+</style>
+<style>
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-note: #2f81f7;
+    --color-tip: #3fb950;
+    --color-warning: #d29922;
+    --color-severe: #db6d28;
+    --color-caution: #f85149;
+    --color-important: #a371f7;
+  }
+}
+
+</style>
+<style>
+.markdown-alert {
+  padding: 0.5rem 1rem;
+  margin-bottom: 16px;
+  color: inherit;
+  border-left: .25em solid #888;
+}
+
+.markdown-alert>:first-child {
+  margin-top: 0
+}
+
+.markdown-alert>:last-child {
+  margin-bottom: 0
+}
+
+.markdown-alert .markdown-alert-title {
+  display: flex;
+  font-weight: 500;
+  align-items: center;
+  line-height: 1
+}
+
+.markdown-alert .markdown-alert-title .octicon {
+  margin-right: 0.5rem;
+  display: inline-block;
+  overflow: visible !important;
+  vertical-align: text-bottom;
+  fill: currentColor;
+}
+
+.markdown-alert.markdown-alert-note {
+  border-left-color: var(--color-note);
+}
+
+.markdown-alert.markdown-alert-note .markdown-alert-title {
+  color: var(--color-note);
+}
+
+.markdown-alert.markdown-alert-important {
+  border-left-color: var(--color-important);
+}
+
+.markdown-alert.markdown-alert-important .markdown-alert-title {
+  color: var(--color-important);
+}
+
+.markdown-alert.markdown-alert-warning {
+  border-left-color: var(--color-warning);
+}
+
+.markdown-alert.markdown-alert-warning .markdown-alert-title {
+  color: var(--color-warning);
+}
+
+.markdown-alert.markdown-alert-tip {
+  border-left-color: var(--color-tip);
+}
+
+.markdown-alert.markdown-alert-tip .markdown-alert-title {
+  color: var(--color-tip);
+}
+
+.markdown-alert.markdown-alert-caution {
+  border-left-color: var(--color-caution);
+}
+
+.markdown-alert.markdown-alert-caution .markdown-alert-title {
+  color: var(--color-caution);
+}
+
+</style>
+        
+        </head>
+        <body class="vscode-body vscode-light">
+            <h1>RSProduction</h1>
+<p>A very usefull library for python development.</p>
+<h2>Table of Contents</h2>
+<ul>
+<li><a href="#1-submodules">1 Submodules</a>
+<ul>
+<li><a href="#styling">styling</a>
+<ul>
+<li><a href="#color">color</a>
+<ul>
+<li><a href="#constants">Constants</a></li>
+<li><a href="#methods">Methods</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#userinterface">userinterface</a></li>
+</ul>
+</li>
+</ul>
+<h1 id="1-submodules">1 Submodules</h1>
+<p>rsproduction<br>
+┣ <a href="#styling">styling</a><br>
+┃ ┗ <a href="#color">color</a><br>
+┗ <a href="#userinterface">userinterface</a></p>
+<h2 id="styling">styling</h2>
+<h3 id="color">color</h3>
+<h4 id="constants">Constants</h4>
+<h5>BLACK</h5>
+<span style="background-color:rgb(0, 0, 0)">__</span>
+<h5>WHITE</h5>
+<span style="background-color:rgb(255, 255, 255)">__</span>
+<h5>LIGHT_GRAY</h5>
+<span style="background-color:rgb(204, 204, 204)">__</span>
+<h5>DARK_GRAY</h5>
+<span style="background-color:rgb(102, 102, 102)">__</span>
+<h5>CORNFLOWER_BLUE</h5>
+<span style="background-color:rgb(153, 153, 255)">__</span>
+<h5>DARKRED</h5>
+<span style="background-color:rgb(139, 0, 0)">__</span>
+<h5>FOCUSED</h5>
+<span style="background-color:rgb(153, 153, 255)">__</span>
+<h5>FOREGROUND</h5>
+<span style="background-color:rgb(0, 0, 0)">__</span>
+<h5>FOREGROUND_DISABLED</h5>
+<span style="background-color:rgb(102, 102, 102)">__</span>
+<h4 id="methods">Methods</h4>
+<h5>bgr2rgb</h5>
+<p>Convert a BGR color to RGB color</p>
+<pre><code class="language-python"><span class="hljs-keyword">import</span> rsproduction.styling.color <span class="hljs-keyword">as</span> color
+
+color_bgr = (<span class="hljs-number">56</span>, <span class="hljs-number">73</span>, <span class="hljs-number">54</span>)
+color_rgb = color.bgr2rgb(color_bgr)
+
+<span class="hljs-built_in">print</span>(<span class="hljs-string">f&#x27;color_bgr: <span class="hljs-subst">{color_bgr}</span>&#x27;</span>)    <span class="hljs-comment"># &gt;&gt; color_bgr: (56, 73, 54)</span>
+<span class="hljs-built_in">print</span>(<span class="hljs-string">f&#x27;color_rgb: <span class="hljs-subst">{color_rgb}</span>&#x27;</span>)    <span class="hljs-comment"># &gt;&gt; color_rgb: (54, 73, 56)</span>
+</code></pre>
+<h5>rgb2bgr</h5>
+<p>Convert a RGB color to BGR color</p>
+<pre><code class="language-python"><span class="hljs-keyword">import</span> rsproduction.styling.color <span class="hljs-keyword">as</span> color
+
+color_rgb = (<span class="hljs-number">56</span>, <span class="hljs-number">73</span>, <span class="hljs-number">54</span>)
+color_bgr = color.bgr2rgb(color_bgr)
+
+<span class="hljs-built_in">print</span>(<span class="hljs-string">f&#x27;color_bgr: <span class="hljs-subst">{color_bgr}</span>&#x27;</span>)    <span class="hljs-comment"># &gt;&gt; color_bgr: (54, 73, 56)</span>
+<span class="hljs-built_in">print</span>(<span class="hljs-string">f&#x27;color_rgb: <span class="hljs-subst">{color_rgb}</span>&#x27;</span>)    <span class="hljs-comment"># &gt;&gt; color_rgb: (56, 73, 54)</span>
+</code></pre>
+<h5>as_float</h5>
+<p>Convert byte color values to relative values [0..1]</p>
+<pre><code class="language-python"><span class="hljs-keyword">import</span> rsproduction.styling.color <span class="hljs-keyword">as</span> color
+
+color_byte = (<span class="hljs-number">125</span>, <span class="hljs-number">125</span>, <span class="hljs-number">125</span>)
+color_rel = color.as_float(color_byte)
+
+<span class="hljs-built_in">print</span>(<span class="hljs-string">f&#x27;color_byte: <span class="hljs-subst">{color_byte}</span>&#x27;</span>)  <span class="hljs-comment"># &gt;&gt; color_byte: (125, 125, 125)</span>
+<span class="hljs-built_in">print</span>(<span class="hljs-string">f&#x27;color_rel: <span class="hljs-subst">{color_rel}</span>&#x27;</span>)    <span class="hljs-comment"># &gt;&gt; color_rel: (0.49019608, 0.49019608, 0.49019608)</span>
+</code></pre>
+<h5>as_int</h5>
+<p>Convert relative color values to byte values [0..255]</p>
+<pre><code class="language-python"><span class="hljs-keyword">import</span> rsproduction.styling.color <span class="hljs-keyword">as</span> color
+
+color_rel = (<span class="hljs-number">0.5</span>, <span class="hljs-number">0.5</span>, <span class="hljs-number">0.5</span>)
+color_byte = color.as_int(color_rel)
+
+<span class="hljs-built_in">print</span>(<span class="hljs-string">f&#x27;color_byte: <span class="hljs-subst">{color_byte}</span>&#x27;</span>)  <span class="hljs-comment"># &gt;&gt; color_byte: (127, 127, 127)</span>
+<span class="hljs-built_in">print</span>(<span class="hljs-string">f&#x27;color_rel: <span class="hljs-subst">{color_rel}</span>&#x27;</span>)    <span class="hljs-comment"># &gt;&gt; color_rel: (0.5, 0.5, 0.5)</span>
+</code></pre>
+<h2 id="userinterface">userinterface</h2>
+
+            
+            
+        </body>
+        </html>
