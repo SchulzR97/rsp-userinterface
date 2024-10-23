@@ -21,7 +21,11 @@ setup(
         install_requires=['opencv-python', 'numpy', 'rsp-common'], # add any additional packages that 
         # needs to be installed along with your package. Eg: 'caer'
         url = "https://github.com/SchulzR97/rsp-userinterface",
-
+        install_requires=[
+            'rsp-common>=0.0.26',
+            'numpy',
+            'opencv-python'
+        ], # add any additional packages that 
         keywords=['python', 'OpenCV', 'UI', 'UserInterface', 'Frontend'],
         classifiers= [
             "Development Status :: 3 - Alpha",

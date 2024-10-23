@@ -5,7 +5,7 @@ from datetime import datetime, timedelta
 from enum import Enum
 from pathlib import Path
 import rsp.common.color as color
-
+import rsp.common.drawing as drawing
 
 OS_NAMES = {
     'Linux': 'Linux',
@@ -239,6 +239,31 @@ class Button(UIElement):
                          cv.FONT_HERSHEY_SIMPLEX, fontScale=self.__fontScale__, color=color.FOREGROUND if self.__is_enabled__ else color.FOREGROUND_DISABLED)
         return img
     
+class Image(UIElement):
+    def __init__(self, label, px, py, img, opacity = 1., on_left_button_clicked = None):
+        super().__init__(label, px, py, img.shape[1], img.shape[0],\
+                         on_left_button_clicked = on_left_button_clicked)
+
+        self.img = img
+        self.opacity = opacity
+
+    def __mouse_left_button_clicked__(self, x, y):
+        super().__mouse_left_button_clicked__(x, y)
+        if x >= self.__px__ and x <= self.__px__ + self.__w__ and \
+            y >= self.__py__ and y <= self.__py__ + self.__h__:
+            self.is_checked = not self.is_checked
+
+    def __draw__(self, img):
+        super().__draw__(img)
+
+        self.__w__ = img.shape[1]
+        self.__h__ = img.shape[0]
+
+        #img[self.py:self.py+self.__h__, self.px:self.px+self.__w__] = self.img
+
+        img = drawing.add_overlay(img, self.img, (self.__px__, self.__py__), self.opacity)
+        return img
+    
 class MessageBoxButtons(Enum):
     YES_NO = 1,
     OK_CANCEL = 2,
@@ -454,6 +479,18 @@ class MessageBox(Window):
         self.confirmed = True
         
 if __name__ == '__main__':
+    class TestWindow(Window):
+        def __init__(self):
+            super().__init__('Test Window')
+
+            img = np.full((100, 100, 3), 255, dtype=np.uint8)
+            img = cv.circle(img, (50, 50), radius=40, color=(0, 0, 255), thickness=-1)
+
+            self.__ui_elements__.append(Image('', 0, 0, img))
+            self.__render__()
+
+    testWindow = TestWindow()
+
     dialog = TextInputDialog('TextInputDialog')
     dialog = OpenFolderDialog()
     dialog = MessageBox('MessageBox', 'Message', MessageBoxButtons.YES_NO)
