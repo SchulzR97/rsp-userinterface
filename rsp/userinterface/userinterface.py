@@ -249,9 +249,6 @@ class Image(UIElement):
 
     def __mouse_left_button_clicked__(self, x, y):
         super().__mouse_left_button_clicked__(x, y)
-        if x >= self.__px__ and x <= self.__px__ + self.__w__ and \
-            y >= self.__py__ and y <= self.__py__ + self.__h__:
-            self.is_checked = not self.is_checked
 
     def __draw__(self, img):
         super().__draw__(img)

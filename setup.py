@@ -1,6 +1,6 @@
 from setuptools import setup, find_packages
 
-VERSION = '0.0.21' 
+VERSION = '0.0.22' 
 DESCRIPTION = 'An OpenCv-based frontend library'
 with open('README.md') as f:
     LONG_DESCRIPTION = f.read()
