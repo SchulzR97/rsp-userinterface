@@ -1,6 +1,6 @@
 from setuptools import setup, find_packages
 
-VERSION = '0.0.19' 
+VERSION = '0.0.20' 
 DESCRIPTION = 'An OpenCv-based frontend library'
 with open('README.md') as f:
     LONG_DESCRIPTION = f.read()
@@ -22,7 +22,7 @@ setup(
         # needs to be installed along with your package. Eg: 'caer'
         url = "https://github.com/SchulzR97/rsp-userinterface",
         install_requires=[
-            'rsp-common>=0.0.26',
+            'rsp-common>=0.0.25',
             'numpy',
             'opencv-python'
         ], # add any additional packages that 
