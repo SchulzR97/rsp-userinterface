@@ -97,12 +97,11 @@ class TextBox(UIElement):
         self.__cursor_blink_interval__ = timedelta(milliseconds=1000)
         self.__cursor__ = '|'
         self.__last_blink_time__ = datetime.now()
-        self.__check_valid__ = self.__cheeck_type_valid__ if check_valid is None else check_valid
-        self.__is_valid__ = self.__check_valid__()
-
         self.__type__ = type
         self.__min__ = min
         self.__max__ = max
+        self.__check_valid__ = self.__cheeck_type_valid__ if check_valid is None else check_valid
+        self.__is_valid__ = self.__check_valid__()
 
     def __cheeck_type_valid__(self):
         if self.__type__ == int:
