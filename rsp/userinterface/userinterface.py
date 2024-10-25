@@ -90,7 +90,7 @@ class UIElement():
 class TextBox(UIElement):
     def __init__(self, label, text, px, py, w = 50, check_valid = None, type = str, min = None, max = None):
         super().__init__(label, px, py, w, 20)
-        self.text = text
+        self.text = str(text)
         self.value = text
         self.__enter_pressed__ = False
         self.__cursor_pos__ = len(self.text)
