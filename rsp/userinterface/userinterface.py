@@ -54,8 +54,8 @@ class UIElement():
             self.__is_focused__ = True
             if self.__on_left_button_clicked__ is not None:
                 self.__on_left_button_clicked__()
-        #else:
-            #self.is_focused = False
+        else:
+            self.__is_focused__ = False
         
     def __mouse_right_button_clicked__(self, x, y):
         pass
@@ -109,6 +109,7 @@ class TextBox(UIElement):
                 val = int(text)
                 if self.__min__ <= val and val <= self.__max__:
                     self.value = val
+                    return True
             except:
                 pass
         elif self.__type__ == float:
@@ -116,17 +117,21 @@ class TextBox(UIElement):
                 val = float(text)
                 if self.__min__ <= val and val <= self.__max__:
                     self.value = val
+                    return True
             except:
                 pass
         elif self.__type__ == bool:
             try:
                 self.value = text.lower() == 'true'
+                return True
             except:
                 pass
         elif self.__type__ == str:
             self.value = text
+            return True
         else:
             raise Exception(f'Type {self.__type__} is not supported.')
+        return False
 
     def __key_input__(self, key):
         super().__key_input__(key)
