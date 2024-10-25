@@ -317,8 +317,8 @@ class Window():
         key = cv.waitKey(10)
 
         if key != -1:
-            for ui_element in self.ui_elements:
-                ui_element.key_input(key)
+            for ui_element in self.__ui_elements__:
+                ui_element.__key_input__(key)
 
     def __on_mouse_event__(self, event, x, y, flags, param):
         # mouse left click
