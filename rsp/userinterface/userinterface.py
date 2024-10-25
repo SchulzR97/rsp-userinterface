@@ -101,30 +101,30 @@ class TextBox(UIElement):
         self.__min__ = min
         self.__max__ = max
         self.__check_valid__ = self.__cheeck_type_valid__ if check_valid is None else check_valid
-        self.__is_valid__ = self.__check_valid__()
+        self.__is_valid__ = self.__check_valid__(self.text)
 
-    def __cheeck_type_valid__(self):
+    def __cheeck_type_valid__(self, text):
         if self.__type__ == int:
             try:
-                val = int(self.text)
+                val = int(text)
                 if self.__min__ <= val and val <= self.__max__:
                     self.value = val
             except:
                 pass
         elif self.__type__ == float:
             try:
-                val = float(self.text)
+                val = float(text)
                 if self.__min__ <= val and val <= self.__max__:
                     self.value = val
             except:
                 pass
         elif self.__type__ == bool:
             try:
-                self.value = self.text.lower() == 'true'
+                self.value = text.lower() == 'true'
             except:
                 pass
         elif self.__type__ == str:
-            self.value = self.text
+            self.value = text
         else:
             raise Exception(f'Type {self.__type__} is not supported.')
 
@@ -157,7 +157,6 @@ class TextBox(UIElement):
                 self.text = self.text[:self.__cursor_pos__] + chr(key) + self.text[self.__cursor_pos__:]
                 self.__cursor_pos__ += 1
                 self.__enter_pressed__ = False
-            self.__is_valid__ = self.__check_valid__()
 
     def __draw__(self, img):
         super().__draw__(img)
@@ -167,7 +166,7 @@ class TextBox(UIElement):
         if datetime.now() - self.__last_blink_time__ >= self.__cursor_blink_interval__:
             self.__last_blink_time__ = datetime.now()
 
-        self.__is_valid__ = True if self.__check_valid__ is None else self.__check_valid__(self.text)
+        self.__is_valid__ = self.__check_valid__(self.text)
          # invalid border
         if not self.__is_valid__:
             img = cv.rectangle(img, (self.__px__ - self.__margin_outer__, self.__py__ - self.__margin_outer__), (self.__px__ + self.__w__ + self.__margin_outer__, self.__py__ + self.__h__ + self.__margin_outer__), color=color.DARKRED, thickness=1)
