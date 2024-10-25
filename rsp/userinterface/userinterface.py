@@ -88,16 +88,46 @@ class UIElement():
         pass
 
 class TextBox(UIElement):
-    def __init__(self, label, text, px, py, w = 50, check_valid = None):
+    def __init__(self, label, text, px, py, w = 50, check_valid = None, type = str, min = None, max = None):
         super().__init__(label, px, py, w, 20)
         self.text = text
+        self.value = text
         self.__enter_pressed__ = False
         self.__cursor_pos__ = len(self.text)
         self.__cursor_blink_interval__ = timedelta(milliseconds=1000)
         self.__cursor__ = '|'
         self.__last_blink_time__ = datetime.now()
-        self.__check_valid__ = check_valid
-        self.__is_valid__ = True if self.__check_valid__ is None else self.__check_valid__
+        self.__check_valid__ = self.__cheeck_type_valid__ if check_valid is None else check_valid
+        self.__is_valid__ = self.__check_valid__()
+
+        self.__type__ = type
+        self.__min__ = min
+        self.__max__ = max
+
+    def __cheeck_type_valid__(self):
+        if self.__type__ == int:
+            try:
+                val = int(self.text)
+                if self.__min__ <= val and val <= self.__max__:
+                    self.value = val
+            except:
+                pass
+        elif self.__type__ == float:
+            try:
+                val = float(self.text)
+                if self.__min__ <= val and val <= self.__max__:
+                    self.value = val
+            except:
+                pass
+        elif self.__type__ == bool:
+            try:
+                self.value = self.text.lower() == 'true'
+            except:
+                pass
+        elif self.__type__ == str:
+            self.value = self.text
+        else:
+            raise Exception(f'Type {self.__type__} is not supported.')
 
     def __key_input__(self, key):
         super().__key_input__(key)
@@ -128,6 +158,7 @@ class TextBox(UIElement):
                 self.text = self.text[:self.__cursor_pos__] + chr(key) + self.text[self.__cursor_pos__:]
                 self.__cursor_pos__ += 1
                 self.__enter_pressed__ = False
+            self.__is_valid__ = self.__check_valid__()
 
     def __draw__(self, img):
         super().__draw__(img)
@@ -285,11 +316,11 @@ class Window():
             self.__img__ = ui_element.__draw__(self.__img__)
 
         cv.imshow(self.__win_name__, self.__img__)
-        # key = cv.waitKey(100)
+        key = cv.waitKey(10)
 
-        # if key != -1:
-        #     for ui_element in self.ui_elements:
-        #         ui_element.key_input(key)
+        if key != -1:
+            for ui_element in self.ui_elements:
+                ui_element.key_input(key)
 
     def __on_mouse_event__(self, event, x, y, flags, param):
         # mouse left click
